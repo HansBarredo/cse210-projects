@@ -23,15 +23,21 @@ class Program
         library.AddScripture(new Reference("Moses", 1, 39), 
             "For behold, this is my work and my glory—to bring to pass the immortality and eternal life of man.");
 
-
         Scripture _scripture = library.SelectRandomScripture();
 
-        _scripture.DisplayScripture();
+        while (!_scripture.isCompletelyHidden())
+        {
+            Console.Clear();
+            _scripture.DisplayScripture();
 
-        Console.WriteLine("\nPress Enter to hide 3 more words or type 'quit' to exit.");
-        Console.ReadLine();
+            Console.WriteLine("\nPress Enter to hide 3 more words or type 'quit' to exit.");
+            string input = Console.ReadLine()?.Trim().ToLower();
+            if (input == "quit" || _scripture.HideRandomWords(3))
+            {
+                break; // Exit the main loop
+            }
+        }
 
-
-        _scripture.HideRandomWords(3);
+        Console.WriteLine("\nProgram finish");
     }
 }

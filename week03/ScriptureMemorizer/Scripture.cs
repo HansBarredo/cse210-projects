@@ -26,9 +26,10 @@ public class Scripture
             Console.Write(word.GetDisplayText() + " ");
         }
         Console.WriteLine();
+
     }
 
-    public void HideRandomWords(int numberToHide)
+    public bool HideRandomWords(int numberToHide)
     {
         List<int> randomNumbers = new List<int>();
         Random random = new Random();
@@ -60,17 +61,17 @@ public class Scripture
             {
                 Console.WriteLine("\nPress Enter to hide 3 more words or type 'quit' to exit.");
                 string input = Console.ReadLine()?.Trim().ToLower();
-                
-                if(input == "quit")
+
+                if (input == "quit")
                 {
-                    break;
+                    return true; 
                 }
             }
-        
         }
-        
-        Console.WriteLine("\nProgram finish");
+
+        return false; 
     }
+
 
     public bool isCompletelyHidden()
     {
@@ -83,5 +84,5 @@ public class Scripture
         }
         return true;
     }
-    
+
 }
