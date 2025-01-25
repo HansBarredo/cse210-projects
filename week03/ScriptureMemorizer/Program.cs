@@ -34,7 +34,7 @@ class Program
             string input = Console.ReadLine()?.Trim().ToLower();
             if (input == "quit" || _scripture.HideRandomWords(3))
             {
-                break; // Exit the main loop
+                break; 
             }
         }
 
