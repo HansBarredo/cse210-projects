@@ -19,7 +19,7 @@ public class Scripture
     }
     public void DisplayScripture()
     {
-        Console.Write(_reference.ToString());
+        Console.Write(_reference.GetDisplayText());
 
         foreach (Word word in _words)
         {
