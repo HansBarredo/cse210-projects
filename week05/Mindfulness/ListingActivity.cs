@@ -57,7 +57,7 @@ class ListingActivity : Activity
     {
 
         List<string> userList = new List<string>();
-        Console.WriteLine("List as much thoughts as y0u can within the given time:");
+        Console.WriteLine("List as much thoughts as you can within the given time:");
 
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(5);
@@ -70,7 +70,14 @@ class ListingActivity : Activity
         }
 
         _count = userList.Count();
-        Console.WriteLine($"you made {_count} entries");
+        if (_count > 1)
+        {
+            Console.WriteLine($"\nyou made {_count} entries\n");
+        } else
+        {
+            Console.WriteLine($"\nyou made {_count} entry\n");
+        }
+        
         return userList;
 
     }
